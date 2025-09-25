@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkymsr3lwrgpu"]
+
+[ext_resource type="Texture2D" uid="uid://drlir8abkbrk2" path="res://assets/tilemap_packed_transparent.png" id="1_d2wlt"]
+[ext_resource type="Script" uid="uid://brsyphbgjr88n" path="res://scripts/player_r.gd" id="1_xdux3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdux3"]
+atlas = ExtResource("1_d2wlt")
+region = Rect2(0, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfylm"]
+atlas = ExtResource("1_d2wlt")
+region = Rect2(8, 48, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkldv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdux3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfylm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2wlt"]
+radius = 3.0
+
+[node name="Player_r" type="CharacterBody2D"]
+script = ExtResource("1_xdux3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_xkldv")
+frame_progress = 0.2683782
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_d2wlt")
